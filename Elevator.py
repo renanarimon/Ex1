@@ -13,4 +13,24 @@ class Elevator:
         self.startTime = _startTime
         self.stopTime = _stopTime
 
+        self.floors = set()
+        self.pos_end = 0.0
+        self.time_end = 0.0
+        self.preSet = 0.0  #calcset
+
+
+
+
+    def calcSet(self):
+        if len(self.floors) == 0:
+            return 0
+        diff = abs(list(self.floors)[0] - list(self.floors)[-1])
+        ans = (diff / self.speed) + len(self.floors) * (self.stopTime + self.startTime
+                                                   + self.openTime + self.closeTime)
+        return ans
+
+
+
+
+
 
