@@ -2,11 +2,13 @@ import argparse
 import csv
 import json
 from Assignments.Ex1.CallForElevator import CallForElevator as clfe
+from Assignments.Ex1.Building import Building
+import pathlib
 list = []
 
 
-def openCsv():
-    with open(r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\Ex1_Calls\Calls_a.csv") as f:
+def openCsv(file_name):
+    with open(file_name, "r+") as f:
         reader = csv.reader(f, delimiter="\t")
         for i, line in enumerate(reader):
             x = line[0].split(",")
@@ -14,13 +16,17 @@ def openCsv():
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     parser.add_argument('calls')
     parser.add_argument('building')
     args = parser.parse_args()
-    openCsv()
-    print(list.pop(0).toString())
+    print(args.building)
+    path = "{}\data\Ex1_input\Ex1_Buildings\{}".format(pathlib.Path(__file__).parent.resolve(),args.building)
+    print(path)
+    b = Building(path)
+    print(b.toString())
+    print(b.maxFloor)
+
 
 
     # def openJson():

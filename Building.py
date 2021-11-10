@@ -26,3 +26,7 @@ class Building:
 
         except IOError as e:
             print(e)
+
+    def toString(self):
+        st = "minFloor = {} maxFloor = {} elevators = {}".format(self.minFloor, self.maxFloor, self.elevators)
+        return st
