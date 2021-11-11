@@ -28,5 +28,8 @@ class Building:
             print(e)
 
     def toString(self):
-        st = "minFloor = {} maxFloor = {} elevators = {}".format(self.minFloor, self.maxFloor, self.elevators)
-        return st
+        st = "minFloor = {} maxFloor = {} ".format(self.minFloor, self.maxFloor)
+        st += "elevators = {"
+        for elev in self.elevators:
+            st += elev.toString()
+        return st + "}"
