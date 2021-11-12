@@ -38,9 +38,13 @@ class MyAlgo:
                     if tmpTime < bestTime:
                         bestTime = tmpTime
                         bestElev = elev
-            self.dict.update()
-            self.dict.update({c: bestElev.id})
             c.allocatedTo = bestElev.id
+            # st = "{},{},{},{},{},{}".format(c.name, c.time, c.src,
+            #                                 c.dest, c.state,
+            #                                 c.allocatedTo)
+            # self.dict.update({st: bestElev.id})
+            self.dict.update({c: bestElev.id})
+
             bestElev.floors.add(c.src)
             bestElev.floors.add(c.dest)
             bestElev.dir = c.dir

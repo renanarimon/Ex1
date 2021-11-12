@@ -22,7 +22,7 @@ class CallForElevator:
     #     return self._time
 
     def toString(self):
-        st = "name = {} time = {} src = {} dest = {} state = {} allocatedTo = {}".format(self.name, self.time, self.src,
-                                                                                         self.dest, self.state,
-                                                                                         self.allocatedTo)
+        st = "{},{},{},{},{},{}".format(self.name, self.time, self.src,
+                                        self.dest, self.state,
+                                        self.allocatedTo)
         return st

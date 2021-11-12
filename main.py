@@ -28,44 +28,25 @@ if __name__ == '__main__':
     parser.add_argument('building')
     args = parser.parse_args()
 
-    pathCall = r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_b.csv"
-    pathBuild = r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Buildings\B2.json"
+    pathCall = r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_c.csv"
+    pathBuild = r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Buildings\B4.json"
     # path = r"{}\data\Ex1_input\Ex1_Buildings\{}".format(pathlib.Path(__file__).parent.resolve(),args.building)
     b = Building(pathBuild)
     openCsv(pathCall)
-    # print(b.toString())
-    # for c in callList:
-    #     print(type(c.time))
-
-
-
-    # print(type(b.elevators.pop(0).time_end))
-    # print(type(callList.pop(0).dir()))
-
     algo = MyAlgo(b, callList)
     algo.MyAllocte()
     mydict = algo.dict
     # print(len(d))
 
-    # filename = "out.csv"
-    # fields = ['name', 'time', 'src', 'dest', 'state', 'allocatedTo']
-    # # writing to csv file
-    # with open(filename, 'w') as csvfile:
-    #     # creating a csv dict writer object
-    #     writer = csv.DictWriter(csvfile, fields)
-    #
-    #     # writing headers (field names)
-    #     writer.writeheader()
-    #
-    #     # writing data rows
-    #     writer.writerows(mydict)
+    filename = r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\out4.csv"
+    # open the file in the write mode
+    with open(filename, 'w', newline='') as f:
+        # create the csv writer
+        writer = csv.writer(f)
 
+        # write a row to the csv file
+        for k in mydict.keys():
+            writer.writerow([k.toString()])
 
-        # for k,v in d.items():
-    #     print(k.toString())
-    #     print(v)
-        # print("call: " + k.toString() + "elev: " + v)
-
-    # for i in d:
-    #     print(type(i))
+        f.close()
 
