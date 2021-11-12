@@ -14,6 +14,8 @@ class Elevator:
 
         self.setStartTime = float(0.0)
         self.holdTime = self.stopTime + self.startTime + self.openTime + self.closeTime
+        self.pos = 0
+        self.dir = 0
 
         self.floors = set()
         self.pos_end = int(0)

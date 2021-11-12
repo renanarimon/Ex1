@@ -57,7 +57,7 @@ class orderList:
         return ans
 
     def calcSet(self, curSet: set):
-        if len(curSet) == 0: return 0;
+        if len(curSet) == 0: return 0
         diff = abs(list(curSet)[0] - list(curSet)[-1])
         ans = (diff / self._elev.speed) + len(curSet) * (self._elev.stopTime + self._elev.startTime
                                                          + self._elev.openTime + self._elev.closeTime)

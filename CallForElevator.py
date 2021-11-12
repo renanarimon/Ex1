@@ -9,22 +9,20 @@ class CallForElevator:
         if (self._dest - self._src) > 0:
             self.dir = 1  # UP
         else:
-            self.dir = 0  # down
+            self.dir = -1  # down
 
-    @property
-    def src(self):
-        return self._src
-
-    def dest(self):
-        return self._dest
-
-    def time(self):
-        return self._time
-
+    # @property
+    # def getSrc(self):
+    #     return self._src
+    #
+    # def getDest(self):
+    #     return self._dest
+    #
+    # def time(self):
+    #     return self._time
 
     def toString(self):
-        str = "_name = {} _time = {} _time = {} _src = {} _state = {}".format(self._name,self._time,self._src,self._dest,self._state)
-        return str
-
-
-
+        st = "name = {} time = {} src = {} dest = {} state = {} allocatedTo = {}".format(self.name, self.time, self.src,
+                                                                                         self.dest, self.state,
+                                                                                         self.allocatedTo)
+        return st
