@@ -1,6 +1,6 @@
 import csv
 
-from Assignments.Ex1.CallForElevator import CallForElevator
+from CallForElevator import CallForElevator
 
 
 class AllCalls:

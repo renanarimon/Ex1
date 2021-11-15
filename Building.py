@@ -1,5 +1,5 @@
 import json
-from Assignments.Ex1.Elevator import Elevator
+from Elevator import Elevator
 
 
 class Building:

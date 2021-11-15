@@ -1,4 +1,4 @@
-from Assignments.Ex1 import Elevator, Building
+from  Ex1 import Elevator, Building
 
 
 class orderList:
@@ -55,6 +55,7 @@ class orderList:
                 elif len(self._DOUN1) > 0:
                     self._pointer = self._DOUN1
         return ans
+
 
     def calcSet(self, curSet: set):
         if len(curSet) == 0: return 0

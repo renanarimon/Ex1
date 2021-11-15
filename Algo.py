@@ -1,14 +1,14 @@
 import math
 import sys
 
-from Assignments.Ex1.Building import Building
-from Assignments.Ex1.CallForElevator import CallForElevator
-from Assignments.Ex1.AllCalls import AllCalls
-from Assignments.Ex1.Elevator import Elevator
+from Building import Building
+from CallForElevator import CallForElevator
+from AllCalls import AllCalls
+from Elevator import Elevator
 
 
 class Algo:
-    def __init__(self, building: Building, allCalls: AllCalls):
+    def __init__(self, building: Building, allCalls: list):
         self.building = building
         self.elevs = building.elevators
         self.allCalls = allCalls
@@ -19,8 +19,9 @@ class Algo:
     """
 
     def allocate(self):
-        while len(self.allCalls.calls) > 0:
-            c1 = self.allCalls.calls.pop(0)
+        while len(self.allCalls) > 0:
+            c1 = self.allCalls.pop(0)
+            print(self.dict)
             bestElev = self.elevs[0]
             bestTime = sys.maxsize
             for elev in self.elevs:
@@ -38,6 +39,7 @@ class Algo:
 
     ## calc time from src to dest
     def CalcSD(self, elev: Elevator, src, dest):
+        if src == dest: return 0
         diff = abs(src - dest)
         ans = (diff / elev.speed) + 2 * (elev.stopTime + elev.startTime + elev.openTime + elev.closeTime)
         return ans

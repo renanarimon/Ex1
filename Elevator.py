@@ -11,34 +11,36 @@ class Elevator:
         self.openTime = float(_openTime)
         self.startTime = float(_startTime)
         self.stopTime = float(_stopTime)
+        self.orderDict = {}
+        self.orderDict.update({"up1": list()})
+        self.orderDict.update({"down1": list()})
+        self.orderDict.update({"up2": list()})
+        self.orderDict.update({"down2": list()})
 
         self.setStartTime = float(0.0)
         self.holdTime = self.stopTime + self.startTime + self.openTime + self.closeTime
         self.pos = 0
-        self.dir = 0
-
-        self.floors = set()
-        self.pos_end = int(0)
-        self.time_end = float(0.0)
-        self.preSet = float(0.0)  # calcset
+        self.pointer = ""
 
     def toString(self):
         st = "id = {}, speed ={}, minFloor={}, maxFloor = {}, closeTime = {}, openTime = {}, startTime = {}, " \
-             "stopTime = {}, floors ={}, pos_end = {}, time_end = {}, preSet = {}".format(self.id, self.speed,
-                                                                                          self.minFloor, self.maxFloor,
-                                                                                          self.closeTime, self.openTime,
-                                                                                          self.startTime,
-                                                                                          self.stopTime,
-                                                                                          self.floors,
-                                                                                          self.pos_end,
-                                                                                          self.time_end,
-                                                                                          self.preSet)
+             "stopTime = {}, pos_end = {}, time_end = {}, preSet = {}".format(self.id, self.speed,
+                                                                              self.minFloor, self.maxFloor,
+                                                                              self.closeTime, self.openTime,
+                                                                              self.startTime,
+                                                                              self.stopTime,
+                                                                              self.pos_end,
+                                                                              self.time_end,
+                                                                              self.preSet)
         return st
 
-    def calcSet(self):
-        if len(self.floors) == 0:
-            return 0
-        diff = abs(list(self.floors)[0] - list(self.floors)[-1])
-        ans = (diff / self.speed) + len(self.floors) * (self.stopTime + self.startTime
-                                                        + self.openTime + self.closeTime)
-        return ans
+    def isEmpty(self):
+        for v in self.orderDict.values():
+            if len(v) > 0:
+                return False
+        return True
+
+    def delete(self, p: str, a: int, b: int):
+        if b == -1:
+            self.orderDict.get(p).clear()
+        del self.orderDict.get(p)[a:b]

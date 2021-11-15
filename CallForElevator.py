@@ -1,12 +1,12 @@
 class CallForElevator:
-    def __init__(self, name, time, src, dest, state, allocatedTo):
-        self._name = name
-        self._time = float(time)
-        self._src = int(src)
-        self._dest = int(dest)
-        self._state = int(state)
-        self._allocatedTo = allocatedTo
-        if (self._dest - self._src) > 0:
+    def __init__(self, name, time: float, src: int, dest: int, state: int, allocatedTo: int):
+        self.name = name
+        self.time = float(time)
+        self.src = int(src)
+        self.dest = int(dest)
+        self.state = int(state)
+        self.allocatedTo =int(allocatedTo)
+        if (self.dest - self.src) > 0:
             self.dir = 1  # UP
         else:
             self.dir = -1  # down
@@ -22,7 +22,9 @@ class CallForElevator:
     #     return self._time
 
     def toString(self):
-        st = "{},{},{},{},{},{}".format(self.name, self.time, self.src,
+
+        st = "{},{},{},{},{},{}".format("Elevator call", self.time, self.src,
                                         self.dest, self.state,
                                         self.allocatedTo)
+
         return st
