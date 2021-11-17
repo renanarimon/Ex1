@@ -1,21 +1,22 @@
-from Algo_offline import Algo_offline
-from Building import Building
-from main import openCsv
 import unittest
+from Algo_offline import Algo_offline
+from main import callList, openCsv
+from Building import Building
+
 
 class test_algo_offline(unittest.TestCase):
-    def test_allocate(self):
-        calls = []
-        # make building form xml
-        b = Building(r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Buildings\B3.json")
 
-        # make calls from csv
-        openCsv(r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_c.csv")
+    def setUp(self) -> None:
+        self.allcalls = callList
+        self.building = Building(r"C:\Users\PC\PycharmProjects\OOP_2021-main\Assignments\Ex1\data\Ex1_input\Ex1_Buildings\B3.json")
+        self.algo = Algo_offline(self.building, self.allcalls)
 
-        algo = Algo_offline(b, calls)
-        algo.allocate()
-        mydict = algo.dict
+    def testA(self):
+        assert self.building.minFloor == -10
+        assert len(self.allcalls) == len(self.algo.dict)
 
-        self.assertEqual(len(calls), len(mydict), "all calls are allocated!")
+    def testB(self):
+        self.algo.allocate()
+        print(len(self.allcalls))
 
-        self.assertEqual(mydict.get(calls[0]), 0)
+

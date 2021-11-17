@@ -5,24 +5,9 @@ class CallForElevator:
         self.src = int(src)
         self.dest = int(dest)
         self.state = int(state)
-        self.allocatedTo =int(allocatedTo)
-        if (self.dest - self.src) > 0:
-            self.dir = 1  # UP
-        else:
-            self.dir = -1  # down
-
-    # @property
-    # def getSrc(self):
-    #     return self._src
-    #
-    # def getDest(self):
-    #     return self._dest
-    #
-    # def time(self):
-    #     return self._time
+        self.allocatedTo = int(allocatedTo)
 
     def toString(self):
-
         st = "{},{},{},{},{},{}".format("Elevator call", self.time, self.src,
                                         self.dest, self.state,
                                         self.allocatedTo)

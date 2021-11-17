@@ -13,9 +13,6 @@ class Building:
                 self.maxFloor = my_d["_maxFloor"]
                 self.elevators = []
                 self.load_json(file_name)
-                # self.speeds = 0.0
-                # self.elevBySpeed = dict()
-                # self.setDict()
         except IOError as e:
             print(e)
 
@@ -31,11 +28,6 @@ class Building:
         except IOError as e:
             print(e)
 
-    # def setDict(self):
-    #     for elev in self.elevators:
-    #         self.elevBySpeed.update({elev.id, elev.speed})
-    #         self.speeds += elev.speed
-    #     self.elevBySpeed = collections.OrderedDict(sorted(self.elevBySpeed.items()))
 
     def toString(self):
         st = "minFloor = {} maxFloor = {} ".format(self.minFloor, self.maxFloor)
