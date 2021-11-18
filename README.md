@@ -23,7 +23,10 @@ Please enter into line 28 in the main(): filename = <the path of Ex1 project on 
 Run the program and then enter the following command line in the terminal:
 java -jar Ex1_checker_V1.2_obf.jar 207616830,314855099  .\data\Ex1_input\Ex1_Buildings\B3.json out1.csv out.log
 
-In order to ran the tests- enter the suitable  path on your computer
+*Note: In Unitest we have calculated for a specific building and calls file, 
+so to run on your computer you need to change the path*
+
+
 
 
 # Our offline algoritm:
