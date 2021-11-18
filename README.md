@@ -11,7 +11,7 @@ From the csv file of the calls.csv:
   * main: has a field which is a list of CallForElevators and the main() ran the  whole program.
 
 
-in addition:
+In addition:
   * Algo_offline: the Algorithm class, allocate() function.
   
 # How to run on your computer:
@@ -26,7 +26,7 @@ java -jar Ex1_checker_V1.2_obf.jar 207616830,314855099  .\data\Ex1_input\Ex1_Bui
 In order to ran the tests- enter the suitable  path on your computer
 
 
-# OUR OFFLINE ALGORITHM:
+# Our offline algoritm:
 The logic of the algorithm - 
 Each elevator has a different speed, so in order to distribute the calls in a balanced way, 
 it is divided so that relatively each elevator will receive a quantity of calls according to its speed.
