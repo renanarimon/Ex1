@@ -4,9 +4,13 @@
 From the json files we created 2 classes:
   * Building: array of elevators
   * Elevator: details about specific elevator
+
+
 From the csv file of the calls.csv:
   * CallForElevator: details about a specific call.
   * main: has a field which is a list of CallForElevators and the main() ran the  whole program.
+
+
 in addition:
   * Algo_offline: the Algorithm class, allocate() function.
   
@@ -31,6 +35,8 @@ for each group of calls - calculated by the sum of the speeds of all the elevato
 For example - building with 2 elevators
   * id: 0, speed: 3
   * id: 1, speed: 2
+
+
 every 5 calls is divided: 3 calls to elevator 0, and 2 calls to elevator 1.
 
 We came to this algorithm after lot of thinking.
